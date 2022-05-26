@@ -164,7 +164,7 @@ CREATE TABLE public.planet (
     star_id integer NOT NULL,
     is_known_to_be_inhabited boolean NOT NULL,
     dicovery_year integer,
-    planet_type integer NOT NULL
+    planet_type_id integer NOT NULL
 );
 
 
@@ -238,7 +238,7 @@ CREATE TABLE public.star (
     description text,
     age_in_millions_of_years numeric(4,1),
     galaxy_id integer NOT NULL,
-    star_type integer NOT NULL
+    star_type_id integer NOT NULL
 );
 
 
@@ -621,7 +621,7 @@ ALTER TABLE ONLY public.moon
 --
 
 ALTER TABLE ONLY public.planet
-    ADD CONSTRAINT planet_planet_type_fkey FOREIGN KEY (planet_type) REFERENCES public.planet_type(planet_type_id);
+    ADD CONSTRAINT planet_planet_type_fkey FOREIGN KEY (planet_type_id) REFERENCES public.planet_type(planet_type_id);
 
 
 --
@@ -645,7 +645,7 @@ ALTER TABLE ONLY public.star
 --
 
 ALTER TABLE ONLY public.star
-    ADD CONSTRAINT star_star_type_fkey FOREIGN KEY (star_type) REFERENCES public.star_type(star_type_id);
+    ADD CONSTRAINT star_star_type_fkey FOREIGN KEY (star_type_id) REFERENCES public.star_type(star_type_id);
 
 
 --
